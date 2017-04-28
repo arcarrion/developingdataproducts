@@ -7,9 +7,37 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library("leaflet")
+myMap <- leaflet() %>% 
+  addTiles()
 ```
 
-## R Markdown
+## Executive Summary
+
+This course project is intended to practice with R Markdown and Leaflet. 
+
+## Cool Restaurants in Madrid at `r date()`
+
+```{r adding_map}
+restaurantIcon <- makeIcon(
+  iconUrl = "https://cdn3.iconfinder.com/data/icons/map-markers-1/512/cafe-512.png",
+  iconWidth = 31, iconHeight = 31
+)
+
+df <- data.frame(lat = c(40.4237838, 40.423037, 40.42774989999999, 40.4040998),
+                 lng = c(-3.6962246000000505, -3.6951351999999815, -3.696929700000055, -3.694452599999977))
+
+placeTag <- c("<a href='https://www.foodtruckburger.es'>FoodTruck</a>", 
+              "<a href='https://www.tripadvisor.com/Restaurant_Review-g187514-d775484-Reviews-Arabia-Madrid.html'>Arabia</a>", 
+              "<a href='http://tierraburritos.com'>Tierra Burrito Bar</a>", 
+              "<a href='http://www.pataconpisao.es'>Patacon Pisao</a>")
+
+df %>% leaflet() %>%
+  addTiles() %>% 
+  addMarkers(icon = restaurantIcon, popup = placeTag)
+```
+
+
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
