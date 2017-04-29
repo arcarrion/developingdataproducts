@@ -33,11 +33,12 @@ expmean40<-apply(expsamples40, 1, mean)
 CLT Example Plot
 ========================================================
 <small>Next observe the exponential shape of the 1 random variable (left), and the normal shape of the addition of 40 random variables (right).</small>
-![plot of chunk unnamed-chunk-2](reproPitch-figure/unnamed-chunk-2-1.png)![plot of chunk unnamed-chunk-2](reproPitch-figure/unnamed-chunk-2-2.png)
+
+<img src="reproPitch-figure/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
 
 Try it out yourself! 
 ========================================================
-Go to <a href="">the app</a> to try this out yourself, testing:
+Go to <a href="https://arcarrion.shinyapps.io/FinalAssignment/">the app</a> to try this out yourself, testing:
   - different distributions (normal, exponential, uniform)
   - different number of independent random variables (from 1 to 100)
 

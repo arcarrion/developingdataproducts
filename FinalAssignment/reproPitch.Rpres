@@ -32,7 +32,9 @@ expmean40<-apply(expsamples40, 1, mean)
 CLT Example Plot
 ========================================================
 <small>Next observe the exponential shape of the 1 random variable (left), and the normal shape of the addition of 40 random variables (right).</small>
-```{r, echo=FALSE, fig=TRUE}
+
+```{r, echo=FALSE, fig=TRUE, fig.width=12, fig.height=5, fig.align='center'}
+par(mfrow=c(1,2))
 hist(expmean1,
      main = "Sample Mean\nDistribution (n=1)", freq = FALSE,
      xlab = "x", ylab = "density(x)")
@@ -43,7 +45,7 @@ hist(expmean40,
 
 Try it out yourself! 
 ========================================================
-Go to <a href="">the app</a> to try this out yourself, testing:
+Go to <a href="https://arcarrion.shinyapps.io/FinalAssignment/">the app</a> to try this out yourself, testing:
   - different distributions (normal, exponential, uniform)
   - different number of independent random variables (from 1 to 100)
 
