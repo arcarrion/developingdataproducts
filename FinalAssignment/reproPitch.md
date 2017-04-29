@@ -3,21 +3,23 @@ The Central Limit Theorem Show!
 author: Alicia Rodriguez
 date: 04/29/2017
 autosize: true
+transition: rotate
 
 Goal
 ========================================================
 
 One of the main concepts in statistics is the well-known 
-Central Limit Theorem (CLT).
+**Central Limit Theorem (CLT)**.
 
 It establishes that, given certain conditions, the arithmetic mean of a sufficiently large number of independent random variables, will be approximately normally distributed, regardless of the underlying distribution.
-<https://support.rstudio.com/hc/en-us/articles/200486468>.
 
-The goal of the application presented is to visually demonstrate this theory.
+The goal of the application presented is to visually demonstrate this theorem.
 
 CLT Example
 ========================================================
-Let's see a small example with an exponential distribution, comparing 1 random variable with respect to the summation of 40 independent random variables (1000 samples each):
+Let's see a small example with an exponential distribution, comparing:
+- 1 random variable (1000 samples), with respect to 
+- the summation of 40 independent random variables (1000 samples each)
 
 ```r
 set.seed(123456)
@@ -28,10 +30,9 @@ expmean1<-apply(expsamples1, 1, mean)
 expmean40<-apply(expsamples40, 1, mean)
 ```
 
-Next observe the exponential shape of the 1 random variable (left), and the normal shape of the addition of 40 random variables (right).
-
 CLT Example Plot
 ========================================================
+<small>Next observe the exponential shape of the 1 random variable (left), and the normal shape of the addition of 40 random variables (right).</small>
 ![plot of chunk unnamed-chunk-2](reproPitch-figure/unnamed-chunk-2-1.png)![plot of chunk unnamed-chunk-2](reproPitch-figure/unnamed-chunk-2-2.png)
 
 Try it out yourself! 
