@@ -1,0 +1,66 @@
+---
+title: "R Markdown Presentation and Plotly"
+author: "Alicia Rodriguez"
+date: "4/29/2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(plotly)
+```
+
+## Introduction
+
+- This presentation is about how to use **R Markdown** and **Plotly** to create cool presentations with interactive plots
+- The example data will be $mtcars$
+- The resulting HTML presentation will be hosted in GitHub Pages
+
+## Exploratory Analysis I
+
+- Let's start by taking a first look at the $mtcars$ data
+```{r exploratory_analysis, echo = TRUE, comment=""}
+head(mtcars)
+```
+
+## Exploratory Analysis II
+
+```{r mtcars_plot, echo = FALSE, message = FALSE, warning = FALSE}
+plot_ly(y=mtcars$mpg, 
+        x=mtcars$hp, 
+        color=factor(mtcars$cyl), 
+        mode="markers", type = "scatter") %>%
+  
+  layout(title = "Miles per Gallon respect Weight and Cylinder", 
+         xaxis = list(
+           title = "Horsepower"),
+         yaxis = list(
+           title = "Miles Per Gallon"
+         )
+         )
+```
+
+## Fitting a Linear Model
+
+```{r mtcars_lm, echo = FALSE, message = FALSE, warning = FALSE}
+plot_ly(y = ~mpg, 
+        x = ~hp, 
+        data = mtcars,
+        mode='markers', 
+        type = 'scatter',
+        name = "Real Values"
+        ) %>%
+  add_trace(x = ~hp, 
+            y = ~fitted((lm(mpg~hp))),
+            mode = 'lines',
+            name = "Linear Model"
+            ) %>%
+  layout(title = "Miles per Gallon respect Weight and Cylinder", 
+         xaxis = list(
+           title = "Horsepower"),
+         yaxis = list(
+           title = "Miles Per Gallon"
+         )
+         )
+```
+
